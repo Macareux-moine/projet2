@@ -1,0 +1,2 @@
+class instruction
+    input
