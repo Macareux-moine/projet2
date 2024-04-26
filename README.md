@@ -31,9 +31,15 @@ Le seconde et un scrip attaque Synflood:( for lucas )
 La notation: 
 
 Projet 1 fonctionnel : 2
+
 Projet 2 fonctionnel : 5
+
 Création et utilisation des modules Python : 3
+
 Structure du code : 3,5
+
 Qualité du code : 2,5
+
 Utilisation des classes : 4
+
 Bonus : Création et utilisation d’un Git : 1# projet2
