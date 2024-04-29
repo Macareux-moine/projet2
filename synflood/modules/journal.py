@@ -1,9 +1,8 @@
-# le but est de compte le nbr de paaquet syn envoyer avec la mise en place dans un log et avec les information source, traget.from datetime import datetime
+from datetime import datetime
 import os
-from threading import Lock  # Importez le verrou
+import sys
 
 
-lock = Lock() # obligatoire sinon il n'y avais par exemple pour 10 ip en 2 processus, que 5 info qui etait copie, probleme du a la tentative ecriture en meme temp ans le fichier 
 
 class Journal:
     def __init__(self):
@@ -44,13 +43,12 @@ class Journal:
     def log_recap_attaque(self, cible, port, nbrpaquet, nbr_processus, messages):
         attaque_file = os.path.join(self.attaque_folder, f"attaque_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.txt")
         
-        with lock:
-            with open(attaque_file, 'a') as f:  
-                demande_info = f"Adresse cible: {cible}\n"
-                demande_info += f"Port: {port}\n"
-                demande_info += f"Nombre de paquets: {nbrpaquet}\n"
-                demande_info += f"Nombre de processus: {nbr_processus}\n\n"
-                f.write(demande_info)
+        with open(attaque_file, 'a') as f:  
+            demande_info = f"Adresse cible: {cible}\n"
+            demande_info += f"Port: {port}\n"
+            demande_info += f"Nombre de paquets: {nbrpaquet}\n"
+            demande_info += f"Nombre de processus: {nbr_processus}\n\n"
+            f.write(demande_info)
         
-                for message in messages:
-                    f.write(message + '\n')
+            for message in messages:
+                f.write(message + '\n')
