@@ -4,8 +4,9 @@ from modules.scan_asynch import ScanASync
 from modules.scan_thread import ScanThread
 
 async def main():
+    # Definition des variables input pour les entrées utilisateurs
     hote = input('Hote (localhost) : ')
-    mode_scan = input('Mode de scan (synch/asynch/Thread) : ').lower()
+    mode_scan = input('Mode de scan (synch/asynch/thread) : ').lower()
     start_port = int(input('Port de départ : '))
     end_port = int(input('Port de fin : '))
     
@@ -34,7 +35,7 @@ async def main():
         elif mode_scan == 'asynch':
             scann = ScanASync(hote)
 
-            # Liste pour stocker les futures de chaque scan asynchrone
+            # Liste pour stocker les finales de chaque scan asynchrone
             port_ouvert = []
 
             # Lancer les scans asynchrones pour chaque port
@@ -53,21 +54,28 @@ async def main():
                 else:
                     print('Port fermé :', port)
 
-                
         elif mode_scan == 'thread':
             scann = ScanThread(hote)
+
+            # Liste pour stocker les résultats de chaque thread
             port_ouvert = []
-            for port in ports:
-                resultat = scann.scan(port)
-                print('test du port %s' % port)
-                # Verifier si le port est ouvert pour l'ajouter au tableau
-                if resultat is not None and resultat[1]:
-                    port_ouvert.append(resultat[0])        
-            
+
+            # Lancer des threads pour scanner chaque port
+            threads = scann.scan_range(start_port, end_port)
+
+            if threads:  # Vérifier si des threads ont été créés
+                # Attendre que tous les threads soient terminés
+                for thread in threads:
+                    thread.join()
+
+            # Afficher les résultats
+            print('Scan terminé')
+            scann.port_ouvert()
+                    
         else:
             print('Mode de scan invalide.')
-    except Exception as ex:
-        print('Erreur %s dans la focntion main()' % ex)
+    except Exception as ex: # Gestion des exceptions
+        print('Erreur %s dans la fonction main()' % ex)
 
 if __name__ == '__main__':
     asyncio.run(main())
