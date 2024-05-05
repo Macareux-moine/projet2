@@ -23,7 +23,7 @@ class Journal:
             print(f"Dossier '{self.attaque_folder}' créé avec succès.")
         else:
             print(f"Dossier '{self.attaque_folder}' existe déjà.")
-            
+        print("Création des fichiers, veuillez patienter...") 
         return os.path.exists(self.journal_folder) and os.path.exists(self.attaque_folder)  # Vérification de l'existence des dossiers
 
     def log_demande(self, cible, port, nbrpaquet, nbr_processus):
