@@ -51,8 +51,6 @@ async def main():
             for port, status in resultat:
                 if status:
                     print('Port ouvert :', port)
-                else:
-                    print('Port fermé :', port)
 
         elif mode_scan == 'thread':
             scann = ScanThread(hote)
