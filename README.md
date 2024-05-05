@@ -1,7 +1,10 @@
-ce projet comporte 2 code, 
 
 
-le premier sur un test de port avec comment consigne utilisé SCapy: (for corentin)
+
+Ce projet comporte 2 code, le premier dans le dossier testport
+
+
+le premier sur un test de port avec comment consigne utilisé SCapy le but et de voir les port ouvert et fermer dans un range. : (for corentin)
 
             ● synchrone et avec des processus, threads ou en asynchrone. L’utilisateur a le choix.
 
@@ -10,13 +13,8 @@ le premier sur un test de port avec comment consigne utilisé SCapy: (for corent
             ● Un affichage simple de l’état des ports devra être pensé pour que 
             l’utilisateur puisse prendre connaissance de l’information simplement.
 
-            + je verais bien un scane sur un plage reseau pas juste sur un host unique a voir si le temps. 
-            
-            + toujours, avec une interface graphisque si possible
-            + la mise en place d'un sauvegarde des demande dans un fichier annexe
 
-
-Le seconde et un scrip attaque Synflood:( for lucas )
+Le seconde et un scrip attaque Synflood :( for lucas )
 
             ● En utilisant des processus, vous ferez en sorte de pouvoir attaquer une cible avec plusieurs dizaines de milliers de paquets SYN pour saturer la cible
 
@@ -25,8 +23,7 @@ Le seconde et un scrip attaque Synflood:( for lucas )
             ● L’utilisateur doit être tenu au courant du nombre de paquets envoyés : un message tous les 10% (sur 40.000 paquets par exemple, 10% = 4000 paquets)
 
             ● N’oublier pas d’envoyer une adresse IP incorrecte lors de votre SYN pour tromper la cible
-
-            + une interface graphique si possible.
+.
             
 La notation: 
 
